@@ -8,12 +8,7 @@
 #' @export
 #'
 #' @examples
-#'  get_scholar_id(first_name = "kristopher", last_name = "mcneill")
-#'  get_scholar_id(first_name = "michael", last_name = "sander", affiliation = NA)
-#'  get_scholar_id(first_name = "michael", last_name = "sander", affiliation = "eth")
-#'  get_scholar_id(first_name = "michael", last_name = "sander", affiliation = "ETH Zurich")
-#'  get_scholar_id(first_name = "michael", last_name = "sander", affiliation = "Mines")
-#'  get_scholar_id(first_name = "james", last_name = "babler")
+#'  get_scholar_id(first_name = "gordon", last_name = "getzinger")
 #'
 #'
 get_scholar_id <- function(first_name, last_name, affiliation = NA) {
@@ -71,8 +66,7 @@ get_scholar_id <- function(first_name, last_name, affiliation = NA) {
 #' @export
 #'
 #'@examples
-#'   n_followers(twitter_handle = "therealmichisander")
-#'   n_followers(twitter_handle = "nadineborduas")
+#'   n_followers(twitter_handle = "gjgetzinger")
 #'
 n_followers <- function(twitter_handle) {
   users <- rtweet::search_users(q = twitter_handle, n = 1)
@@ -99,11 +93,8 @@ n_followers <- function(twitter_handle) {
 #' @export
 #'
 #' @examples
-#' k_index(twitter_handle = NA, first_name = "michael", last_name = "sander")
-#' k_index(twitter_handle = "krismcneill", first_name = "kristopher", last_name = "mcneill")
-#' k_index(twitter_handle = "nadineborduas", first_name = "nadine", last_name = "borduas")
-k_index <-
-  function(twitter_handle,
+#' k_index(twitter_handle = "gjgetzinger", first_name = "gordon", last_name = "getzinger")
+k_index <- function(twitter_handle,
            first_name,
            last_name,
            affiliation = NA) {
@@ -140,12 +131,12 @@ k_index <-
     }
     message(paste0("Followers Actual", foll_act))
 
-    k_index <- foll_act/foll_exp
-    message(paste0("Kardasian Index: ", k_index))
-    if(k_index > 5){
+    k <- foll_act/foll_exp
+    message(paste0("Kardasian Index: ", k))
+    if(k > 5){
       message("This researcher is a 'Science Kardashian' (K-index > 5)")
     }
-    return(k_index)
+    return(k)
   }
 
 

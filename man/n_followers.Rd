@@ -16,7 +16,6 @@ The number of users or NA when no user is found.
 Get the number of users for a given twitter user
 }
 \examples{
-  n_followers(twitter_handle = "therealmichisander")
-  n_followers(twitter_handle = "nadineborduas")
+  n_followers(twitter_handle = "gjgetzinger")
 
 }

@@ -22,7 +22,5 @@ The K-index of a researcher.
 https://en.wikipedia.org/wiki/Kardashian_Index
 }
 \examples{
-k_index(twitter_handle = NA, first_name = "michael", last_name = "sander")
-k_index(twitter_handle = "krismcneill", first_name = "kristopher", last_name = "mcneill")
-k_index(twitter_handle = "nadineborduas", first_name = "nadine", last_name = "borduas")
+k_index(twitter_handle = "gjgetzinger", first_name = "gordon", last_name = "getzinger")
 }
