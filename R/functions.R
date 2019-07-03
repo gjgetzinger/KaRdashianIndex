@@ -90,7 +90,7 @@ n_followers <- function(twitter_handle) {
 
 #' Calculate the Kardashian Index for a researcher
 #'
-#' \link[https://en.wikipedia.org/wiki/Kardashian_Index]{https://en.wikipedia.org/wiki/Kardashian_Index}
+#' https://en.wikipedia.org/wiki/Kardashian_Index
 #'
 #' @inheritParams n_followers
 #' @inheritParams get_scholar_id
