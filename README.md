@@ -8,8 +8,8 @@ devtools::install_github("gjgetzinger/KaRdashianIndex")
 Usage: 
 ```r
 k_index(
-   twitter_handle = "krismcneill", 
-   first_name = "kristopher", 
-   last_name = "mcneill"
+   twitter_handle = "gjgetzinger", 
+   first_name = "gordon", 
+   last_name = "getzinger"
 )
 ```
