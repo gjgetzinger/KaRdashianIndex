@@ -129,7 +129,7 @@ k_index <- function(twitter_handle,
         message("No twitter handle matching the provided input.")
       }
     }
-    message(paste0("Followers Actual", foll_act))
+    message(paste0("Followers Actual: ", foll_act))
 
     k <- foll_act/foll_exp
     message(paste0("Kardasian Index: ", k))
