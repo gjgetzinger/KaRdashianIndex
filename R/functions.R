@@ -42,13 +42,18 @@ get_scholar_id <- function(first_name, last_name, affiliation = NA) {
         stringr::str_count(
           string = x$affiliation,
           pattern = stringr::coll(affiliation, ignore_case = TRUE)
-        )
+        ) &
+          stringr::str_count(
+            string = x$name,
+            pattern = stringr::coll(last_name, ignore_case = TRUE)
+          )
       })
-      if(all(which_profile == 0)){
+
+      if (any(which_profile)) {
+        x_profile <- profiles[[which(which_profile)]]
+      } else {
         message("No researcher found at the indicated affiliation.")
         return(NA)
-      } else {
-        x_profile <- profiles[[which(which_profile != 0)]]
       }
     }
   } else {
@@ -69,14 +74,10 @@ get_scholar_id <- function(first_name, last_name, affiliation = NA) {
 #'   n_followers(twitter_handle = "gjgetzinger")
 #'
 n_followers <- function(twitter_handle) {
-  users <- rtweet::search_users(q = twitter_handle, n = 1)
-  if(nrow(users)>0){
-    users %>%
-      dplyr::select(user_id) %>%
-      dplyr::pull() %>%
-      rtweet::get_followers(user = .) %>%
-      data.frame %>%
-      nrow
+  users <-
+    rtweet::search_users(q = twitter_handle, parse = F, n = 1)[[1]]
+  if (!is.null(unlist(users))) {
+    users$followers_count
   } else {
     NA
   }
